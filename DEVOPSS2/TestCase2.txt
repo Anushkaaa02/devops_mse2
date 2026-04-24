@@ -1,0 +1,41 @@
+# Test Case 2 — File Permission Configuration
+
+Run the following commands in your Linux terminal to complete the tasks:
+
+## Task 1: Navigate to home and create file
+```bash
+cd ~
+touch index.html
+```
+
+## Task 2: Add HTML content
+```bash
+echo "<h1>Welcome to the Web Server</h1>" > index.html
+```
+
+## Task 3: Check default permissions
+```bash
+ls -l index.html
+```
+
+## Task 4: Grant full permissions to all users (777)
+```bash
+chmod 777 index.html
+ls -l index.html
+```
+
+## Task 5: Change owner and group to www-data
+```bash
+sudo chown www-data:www-data index.html
+```
+
+## Task 6: Change permissions to 755
+```bash
+sudo chmod 755 index.html
+```
+
+## Task 7: Display final permissions and ownership
+```bash
+ls -l index.html
+# Expected output: -rwxr-xr-x 1 www-data www-data ... index.html
+```

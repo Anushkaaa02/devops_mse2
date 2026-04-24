@@ -1,0 +1,76 @@
+anushka@Anushka:~$ whoami
+anushka
+
+anushka@Anushka:~$ who
+anushka  pts/2        2026-04-24 05:10
+root     pts/3        2026-04-24 05:10
+
+anushka@Anushka:~$ last
+reboot   system boot  6.6.87.2-microso Fri Apr 24 05:10   still running
+reboot   system boot  6.6.87.2-microso Fri Apr 17 09:12 - 02:20 (3+17:08)
+reboot   system boot  6.6.87.2-microso Sun Mar 22 17:05 - 17:05  (00:00)
+reboot   system boot  6.6.87.2-microso Thu Mar 19 11:10 - 16:45 (1+05:35)
+
+wtmp begins Mon Feb 23 09:00:10 2026
+
+anushka@Anushka:~$ uname -a
+Linux Anushka 6.6.87.2-microsoft-standard-WSL2 #1 SMP PREEMPT_DYNAMIC Thu Jun  5 18:30:46 UTC 2025 x86_64 x86_64 x86_64 GNU/Linux
+
+anushka@Anushka:~$ hostname
+Anushka
+
+anushka@Anushka:~$ uptime
+ 06:25:12 up  1:30,  2 users,  load average: 0.01, 0.04, 0.05
+
+anushka@Anushka:~$ sudo groupadd developers
+groupadd: group 'developers' already exists
+
+anushka@Anushka:~$ getent group developers
+developers:x:1001:
+
+anushka@Anushka:~$ getent group qa
+qa:x:1002:
+
+anushka@Anushka:~$ cat /etc/group
+root:x:0:
+daemon:x:1:
+bin:x:2:
+sys:x:3:
+adm:x:4:syslog,anushka
+tty:x:5:
+disk:x:6:
+lp:x:7:
+mail:x:8:
+sudo:x:27:anushka
+audio:x:29:anushka
+video:x:44:anushka
+plugdev:x:46:anushka
+users:x:100:anushka
+anushka:x:1000:
+developers:x:1001:
+qa:x:1002:
+docker:x:1003:anushka
+
+anushka@Anushka:~$ sudo useradd -m -G developers aman
+sudo useradd -m -G developers ritu
+sudo useradd -m -G qa karan
+useradd: user 'aman' already exists
+useradd: user 'ritu' already exists
+useradd: user 'karan' already exists
+
+anushka@Anushka:~$ id aman
+uid=1001(aman) gid=1001(developers) groups=1001(developers)
+
+anushka@Anushka:~$ id karan
+uid=1003(karan) gid=1002(qa) groups=1002(qa)
+
+anushka@Anushka:~$ who | grep ritu
+
+anushka@Anushka:~$ id ritu
+uid=1002(ritu) gid=1001(developers) groups=1001(developers)
+
+anushka@Anushka:~$ sudo userdel -r ritu
+userdel: ritu mail spool (/var/mail/ritu) not found
+
+anushka@Anushka:~$ id ritu
+id: ‘ritu’: no such user
